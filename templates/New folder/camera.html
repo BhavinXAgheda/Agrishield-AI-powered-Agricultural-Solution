@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Camera Access and Capture</title>
+    <style>
+        #canvas,
+        #downloadLink {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Camera Capture Example</h1>
+    <video id="video" width="640" height="480" autoplay></video>
+    <br>
+    <button id="captureBtn">Capture Photo</button>
+    <br>
+    <canvas id="canvas" width="640" height="480"></canvas>
+    <br>
+    <a id="downloadLink" download="photo.png">Download Photo</a>
+
+    <script>
+        // Get elements
+        const video = document.getElementById('video');
+        const captureBtn = document.getElementById('captureBtn');
+        const canvas = document.getElementById('canvas');
+        const downloadLink = document.getElementById('downloadLink');
+
+        // Start the camera
+        function startCamera() {
+            if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+                navigator.mediaDevices.getUserMedia({ video: true })
+                    .then(function (stream) {
+                        video.srcObject = stream;
+                        video.play();
+                    })
+                    .catch(function (err) {
+                        console.log("An error occurred: " + err);
+                    });
+            } else {
+                alert("getUserMedia not supported in this browser.");
+            }
+        }
+
+        // Capture the photo
+        captureBtn.onclick = function () {
+            const context = canvas.getContext('2d');
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+            context.drawImage(video, 0, 0, canvas.width, canvas.height);
+            const dataURL = canvas.toDataURL('image/png');
+            downloadLink.href = dataURL;
+            downloadLink.style.display = 'block';
+            downloadLink.innerHTML = 'Download Photo';
+        }
+
+        // Start the camera when the page loads
+        window.onload = function () {
+            startCamera();
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,724 @@
+@import url("https://fonts.googleapis.com/css?family=Karla:400,700");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Karla", sans-serif;
+    /* Ensures padding and borders are included in the element's total width and height */
+}
+
+:root {
+    --green: #77b122;
+    --gray: #707070;
+    --white: var(--white);
+    --black2: #0f1112;
+    --darkwhite: #b7b7b7;
+    --bordercol: #e1e1e1;
+    --blackh:#303030;
+    --g2:#88D66C;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: var(--gray);
+    background-color: var(--white);
+}
+
+section{
+    display: block
+}
+div {
+    display: block;
+    unicode-bidi: isolate;
+}
+
+ul {
+    color: var(--gray);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Karla", sans-serif;
+  color: var(--blackh);
+  line-height: 1.3;
+  font-weight: 700; 
+        }
+
+p {
+  font-family: "Karla", sans-serif;
+  color: #707070;
+  font-size: 14px;
+  line-height: 1.7;
+  font-weight: 400; }
+
+a,
+a:focus,
+a:hover {
+  -webkit-transition-duration: 500ms;
+  -o-transition-duration: 500ms;
+  transition-duration: 500ms;
+  text-decoration: none;
+  outline: 0 solid transparent;
+  color: #707070;
+  font-weight: 700;
+  font-size: 14px;
+  font-family: "Karla", sans-serif; }
+
+  img {
+    height: auto;
+    max-width: 100%; }
+  
+  .bg-img {
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat; }
+
+.container {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    padding: 0 1rem;
+    /* Added padding for better spacing on smaller screens */
+}
+/* Base styles for the navigation menu */
+nav {
+    background-color: var(--white);
+    position: fixed;
+    width: 100%;
+    z-index: 20;
+    top: 0;
+    left: 0;
+    text-transform: uppercase;
+}
+
+nav .max-w-screen-xl {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+#navbar-sticky {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    #navbar-sticky {
+        display: flex !important;
+    }
+}
+
+/* Transition effects */
+#navbar-sticky {
+    transition: max-height 0.3s ease;
+}
+
+
+/* Show the navbar menu items and adjust styles for larger screens */
+@media (min-width: 768px) {
+    #navbar-sticky {
+        display: flex;
+        width: auto;
+        order: 1;
+    }
+
+    nav .flex.md\:order-2 {
+        order: 2;
+        flex-direction: row;
+    }
+
+    nav .md\:w-auto {
+        width: auto;
+    }
+}
+.swiper-container {
+    width: 100%;
+    height: 100%;
+  }
+
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(70%);
+    cursor: -webkit-grab; 
+    cursor: grab;
+  }
+  .slider-container {
+  width: 100%; /* Set this to the exact width of the slider or to 100% if responsive */
+  overflow: hidden; /* Prevents the scrollbar from appearing */
+}
+.slider-wrapper {
+  position: relative;
+  overflow: hidden; /* Hides any overflow during sliding */
+}
+
+.swiper-pagination{
+color: #77b122;
+}
+.slider {
+  display: flex;
+  transition: transform 0.5s ease-in-out; /* Ensure smooth sliding */
+  width: 100%; /* Adjust this to fit your slider's design */
+}
+  /* Optional styling for pagination and navigation buttons */
+  .swiper-button-next,
+  .swiper-button-prev {
+    color: #000;
+  }
+
+.parallax {
+    position: relative;
+    z-index: -2;
+}
+
+.parallax > .parallax-img {
+    position: absolute;
+    object-fit: cover;
+    font-family: 'object-fit: cover;';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; }
+
+.icon-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+    padding: 0 20px;
+    margin-bottom: 30px;
+    z-index: 1;
+    position: relative;
+    margin-left: 30px;
+}
+
+.icon-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 40px 20px;
+    flex: 1 1 5%;
+}
+
+.icon-item img {
+    width: 70px;
+    height: 70px;
+}
+
+.icon-item h5 {
+    font-size: 1.4rem;
+    font-weight: 400;
+    margin: 0;
+    color: #303030;
+    align-items: center;
+}
+
+/* General Styles */
+.about-us-area {
+    background-color: #f9f9f9; /* Light background for contrast */
+  }
+  
+  /* Section Heading */
+  .section-heading img {
+    float: left; /* Keeps the image floated to the left */
+    margin-right: 1rem; /* Space between the image and text */
+  }
+  
+  /* Video Content */
+  .famie-video-play img {
+    border-radius: 50%; /* Fully round the image */
+    width: 16rem; /* Set the width */
+    height: 16rem; /* Set the height to match the width */
+    object-fit: cover; /* Ensure the image covers the area */
+  }
+  
+  
+  /* Play Icon */
+  .play-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the icon */
+    font-size: 2rem; /* Adjust icon size */
+    color: var(--white); /* White color for the play icon */
+  }
+  
+  /* Button Styles */
+  .btn.famie-btn {
+    background-color: var(--green); /* Green button color */
+    color: var(--white); /* White text color */
+    border-radius: 0.25rem; /* Rounded corners */
+    padding: 0.5rem 1rem; /* Padding */
+    text-decoration: none; /* Remove underline */
+    display: inline-block; /* Ensure it respects the block model */
+  }
+  
+  .btn.famie-btn:hover {
+    background-color: var(--green); /* Darker green on hover */
+  }
+
+  .no-animations * {
+    animation: none !important;
+    transition: none !important;
+}
+
+/* General Popup Styles */
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    background-color: var(--white);
+    border: 1px solid #ddd;
+    padding: 20px;
+    /* Standard padding */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    display: none;
+    /* Hidden by default */
+}
+
+/* Show popup when needed */
+.popup.show {
+    display: block;
+}
+
+/* Close button style */
+.popup-content .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 28px;
+    /* Large close button for visibility */
+    color: red;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Popup Menu Styles */
+#popupMenu {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    width: 371px;
+    height: 245px;
+    max-width: 95%;
+    max-height: 90%;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    color: white;
+    /* Standard padding */
+}
+
+#uploadPopup,
+#buttonPopup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    width: 400px;
+    /* Set a consistent width */
+    height: 350px;
+    /* Set a consistent height */
+    max-width: 95%;
+    max-height: 90%;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    color: white;
+    /* Standard padding */
+}
+
+.popup-content {
+    position: relative;
+    height: 100%;
+    /* Ensure content takes full height */
+}
+
+/* Common Style for Video and Canvas */
+#canvas {
+    width: 100%;
+    /* Set to fill the width of the popup */
+    height: 83%;
+    /* Set to fill the height of the popup */
+    object-fit: cover;
+    /* Ensures content fits within bounds */
+    border-radius: 4px;
+    /* Add rounding to match popup */
+}
+
+#video {
+    width: 100%;
+    /* Set to fill the width of the popup */
+    height: 83%;
+    /* Set to fill the height of the popup */
+    object-fit: cover;
+    /* Ensures content fits within bounds */
+    border-radius: 4px;
+    /* Add rounding to match popup */
+}
+
+/* Upload form input styles */
+.upload {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+input[type="file"] {
+    display: block;
+    margin-bottom: 15px;
+}
+
+input[type="submit"] {
+
+    text-align: center;
+    background-color: var(--green);
+    color:white;
+    border: none;
+    cursor: pointer;
+} 
+
+input[type="submit"]:hover {
+    background-color: var(--green);
+}
+
+.close {
+    cursor: pointer;
+    float: right;
+    font-size: 20px;
+    font-weight: bold;
+    color: red;
+    z-index: 1000;
+}
+/* Default Mobile Styles (applies to all devices, but can be overridden by media queries) */
+
+/* Clearfix for floated elements */
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.services-thumbnail {
+    position: relative;
+    overflow: hidden;
+    width: 100%; /* Full width on small screens */
+    height: 40vh; /* Adjust height as needed for mobile screens */
+    background-image: url('../img/bg/3.jpg');
+    background-position: -50% center; 
+    background-size: cover; /* Ensure the image covers the entire container */
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Parallax effect */
+    
+}
+
+.services-content {
+    width: 100%; /* Full width by default */
+    padding: 20px;
+    padding-left: 10px;
+    padding-right: 80px;
+}
+.services-content .container {
+    padding-top: 90px; /* Adjust this value to increase or decrease top padding */
+    padding-bottom: 20px; /* Optional: Add bottom padding if needed */
+}
+
+/* Ensure proper spacing for section heading */
+.container .mb-3 {
+    margin-bottom: 1rem; /* Adjust this value if more space is needed between heading and description */
+}
+
+/* Ensure proper spacing for the description */
+.container .mb-8 {
+    margin-bottom: 2rem; /* Adjust this value if more space is needed below the description */
+}
+
+/* Mobile-specific styles */
+.flex.items-center.justify-center.space-x-10.mb-6 {
+    flex-wrap: wrap; /* Wrap icons on smaller screens */
+    justify-content: space-around; /* Space out evenly on smaller screens */
+}
+
+.flex.items-center.ml-6 {
+    margin-left: 0; /* Remove left margin on small screens */
+    margin-bottom: 10px; /* Add bottom margin for spacing */
+}
+
+.small-image {
+    width: 70%;
+    /* Reduce the width of the image to 75% of its container */
+    height: 60%;
+    /* Maintain aspect ratio */
+    margin: 0 auto;
+    /* Center the image horizontally */
+}
+
+/* Desktop View - Min Width 768px and up */
+@media (min-width: 768px) {
+    .services-thumbnail {
+        width: 40%; /* 40% width on larger screens */
+        height: 80vh; /* Full viewport height */
+        float: left; /* Ensure it aligns left */
+        position: relative;
+        overflow: hidden;       
+        background-position: -50% center ;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+
+    .services-content {
+        padding-top: 20px;
+        width: 60%;
+        padding: 2px;
+        float: right; /* Ensure content aligns to the right of the thumbnail */
+        padding-left: 30px;
+        padding-bottom: 40px;
+        justify-content: left;
+        padding-right: 80px;
+    }
+
+    /* Restore margins and spacing for desktop icons */
+    .flex.items-center.ml-6 {
+        margin-left: 6px; /* Restore margin for larger screens */
+        margin-bottom: 0; /* Remove bottom margin */
+    }
+}
+
+/* Mobile View Styles - Max Width 767px */
+@media (max-width: 767px) {
+    .flex.flex-wrap {
+        flex-wrap: wrap; /* Allow wrapping, stack image and content */
+    }
+
+    .services-thumbnail {
+        flex: 0 0 100%; /* Full width on small screens */
+        height: 40vh; /* Reduced height for mobile screens */
+        background-position: center; /* Center image by default */
+        background-size: cover; /* Cover the container */    
+    }
+
+    .services-content {
+        flex: 0 0 100%; /* Full width on small screens */
+        padding: 20px;
+        padding-bottom: 20px;
+        justify-content: left;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    /* Adjust service area icons */
+    .flex.items-center.justify-center.space-x-10.mb-6 {
+        flex-wrap: wrap; /* Wrap icons on smaller screens */
+        justify-content: space-around; /* Space out evenly on smaller screens */
+    }
+
+    .flex.items-center.ml-6 {
+        margin-left: 0; /* Remove left margin on small screens */
+        margin-bottom: 10px; /* Add bottom margin for spacing */
+    }
+}
+
+
+
+/* Center the h2 text and add additional styling */
+#store h2 {
+    text-align: center;
+    /* Center the text */
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+    /* Increase font size */
+    font-weight: 700;
+    /* Make the font bold */
+    color: #333;
+    /* Change text color */
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--green);
+    /* Add a bottom border with green color */
+}
+
+/* Style the green span inside h2 */
+#store h2 .text-green {
+    color: var(--green);
+    /* Green color */
+}
+
+/* Add some padding to the section */
+#store {
+    padding: 20px 0;
+}
+
+/* Additional styling for the section background */
+#store .bg-white {
+    background-color: #f9f9f9;
+    /* Slightly grey background */
+    border-radius: 8px;
+    /* Rounded corners */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow */
+}
+
+/* Ensure the icon only appears on hover */
+.group:hover .free-icon {
+    display: flex;
+}
+
+.free-icon {
+    display: none;
+    /* Hide the icon initially */
+}
+#store h5,h4,h6 {
+    text-align: center;
+    /* Center the text */
+    margin-bottom: 20px;
+    font-size: 1rem;
+    /* Increase font size */
+    font-weight: 200;
+    /* Make the font bold */
+    color: #333;
+    /* Change text color */
+    padding-bottom: 10px;
+}
+
+h2 span {
+    color: var(--green); /* Green color for "Get In Touch" */
+  }
+  
+.py-16.lg\:py-32 {
+    padding-top: 8rem; /* 1rem = 16px, 4rem = 64px */
+    padding-bottom: 8rem;
+  }
+  
+  /* Remove excessive bottom margin */
+  .mb-16.lg\:mb-24 {
+    margin-bottom: 5rem;
+  }
+  
+  .contact-area .container
+  {
+  padding-top: 40px;
+  }
+  .cont-sec{
+    margin-bottom: 3rem;
+    height: 500px;
+  }
+
+  .form-container {
+    max-width: 600px;  /* Ensures the form and iframe have the same width */
+    margin: 0 auto;
+    margin-bottom: 3rem;
+    position: relative;
+    z-index: 2;
+    height: 48px;   
+    background-color: var(--white);
+    font-size: 12px;
+    padding: 10px 30px;
+    color: #707070;
+    border: 0px solid #e1e1e1;
+    border-radius: 2px; /* Adjusted margin-bottom to reduce space below the form */
+}
+  
+  /* Adjust textarea height */
+  .form-container textarea {
+    height: 100px;
+  }
+  
+  /* Button Styles */
+  .form-container button {
+    background-color: var(--green);
+    color:var(--white);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: var(--green);
+  }
+  
+  /* Iframe */
+  .map-iframe {
+    padding-top: 10px;
+    width: 488px;
+    height: 455px;
+    border-radius: 2rem; /* Matches the approximate height of the form */
+    box-shadow: #000;
+}
+
+  
+  @media (max-width: 1024px) {
+    /* Responsive adjustments */
+    .form-container,
+    .map-iframe {
+      max-width: 100%;
+      margin-bottom: 3rem;
+    }
+  }
+
+/* 2nd Webpage */
+/* styles.css */
+
+/* Adds top margin to the main container */
+.custom-margin {
+    margin-top: 2.5rem; /* Equivalent to Tailwind's mt-10 */
+}
+
+.img-thumbnail {
+    width: 500px; /* Fixed width */
+    height: 450px; /* Fixed height */
+    object-fit: cover; /* Ensures the image covers the box without distortion */
+    border-radius: 0.375rem; /* Optional: Gives the image rounded corners */
+}
